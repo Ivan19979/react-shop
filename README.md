@@ -2,4 +2,4 @@
 
 Ветка MASTER для клонирования
 
-GithubPages:
+GithubPages: [React Shop](https://ivan19979.github.io/react-shop/)
