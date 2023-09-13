@@ -7,6 +7,8 @@ function Footer() {
           <a
             className="grey-text text-lighten-4 right"
             href="https://github.com/Ivan19979/05-movie"
+            target="_blank"
+            rel="noreferrer"
           >
             GitHub project
           </a>
