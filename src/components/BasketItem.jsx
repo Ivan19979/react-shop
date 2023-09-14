@@ -1,16 +1,14 @@
+import { useContext } from "react";
+import { ShopContext } from "../context";
+
 function BasketItem(props) {
-  const {
-    id,
-    name,
-    price,
-    count,
-    basketDelete,
-    countIncrement,
-    countDecrement,
-  } = props;
+  const { id, name, price, count } = props;
+
+  const { basketDelete, countDecrement, countIncrement } =
+    useContext(ShopContext);
   return (
     <li className="collection-item">
-      {name} x {count} = {price * count} руб.{" "}
+      {name} {price} руб. x {count} = {price * count} руб.{" "}
       <button className="btn-count" onClick={() => countDecrement(id)}>
         -
       </button>{" "}

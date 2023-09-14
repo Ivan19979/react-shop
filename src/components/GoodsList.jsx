@@ -1,15 +1,14 @@
-import { useEffect, useState } from "react";
+import { useState, useContext } from "react";
+import { ShopContext } from "../context";
 import { GoodsItem } from "./GoodsItem";
 
-function GoodsList(props) {
-  const { goods = [], addOrder = Function.prototype } = props;
+function GoodsList() {
   const [indexItem, setIndexItem] = useState(23);
+  const { goods = [] } = useContext(ShopContext);
 
   const handleMore = () => {
     setIndexItem(indexItem + 12);
   };
-
-  useEffect(() => {}, [indexItem]);
 
   if (!goods.length) {
     return <h3>Nothing here</h3>;
@@ -20,9 +19,7 @@ function GoodsList(props) {
       <div className="goods">
         {goods.map((item, index) => {
           if (index > 10 && index < indexItem) {
-            return (
-              <GoodsItem key={item.mainId} {...item} addOrder={addOrder} />
-            );
+            return <GoodsItem key={item.mainId} {...item} />;
           }
           return null;
         })}

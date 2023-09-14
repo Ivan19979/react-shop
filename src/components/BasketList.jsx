@@ -1,27 +1,16 @@
 import { BasketItem } from "./BasketItem";
+import { useContext } from "react";
+import { ShopContext } from "../context";
 
-function BasketList(props) {
-  const {
-    order = [],
-    handleBasketClose,
-    basketDelete,
-    countDecrement,
-    countIncrement,
-  } = props;
+function BasketList() {
+  const { order, handleBasketClose } = useContext(ShopContext);
+
   return (
     <div className="modal-basket" onClick={handleBasketClose}>
       <ul className="collection basket-list">
         <li className="collection-item indigo white-text">Корзина</li>
         {order.length ? (
-          order.map((item) => (
-            <BasketItem
-              key={item.id}
-              {...item}
-              basketDelete={basketDelete}
-              countDecrement={countDecrement}
-              countIncrement={countIncrement}
-            />
-          ))
+          order.map((item) => <BasketItem key={item.id} {...item} />)
         ) : (
           <li className="collection-item">Корзина пуста</li>
         )}
